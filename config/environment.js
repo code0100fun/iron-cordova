@@ -10,6 +10,8 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+        'ember-htmlbars-component-generation': true,
+        'ember-htmlbars-attribute-syntax': true
       }
     },
 
@@ -20,7 +22,11 @@ module.exports = function(environment) {
 
     cordova: {
       rebuildOnChange: false,
-      emulate: false
+      emulate: false,
+      liveReload: {
+        enabled: true,
+        platform: 'ios'
+      }
     }
   };
 
