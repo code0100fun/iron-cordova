@@ -26,8 +26,12 @@
         <p>{{item.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       {{else if section.options}}
-        <ion-option-button kind="positive">Edit This</ion-option-button>
-        <ion-option-button kind="assertive">Destroy</ion-option-button>
+        <ion-option-button click={{action 'edit' item}} kind="positive">
+          Edit This
+        </ion-option-button>
+        <ion-option-button  click={{action 'destroy' item}} kind="assertive">
+          Destroy
+        </ion-option-button>
       {{/if}}
     </ion-item>
     {{/each}}
