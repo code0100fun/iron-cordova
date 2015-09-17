@@ -1,34 +1,24 @@
 import Ember from 'ember';
+import faker from 'faker';
+
+function avatar(width, height) {
+  return `https://www.placecage.com/gif/${width}/${height}`;
+}
 
 export default Ember.Route.extend({
   model() {
-    return {
-      items: Ember.A([{
+    const items = [];
+    for(let i = 0; i < 100; i++) {
+      const width = faker.random.number({ min: 4, max: 8 }) * 20;
+      const height = faker.random.number({ min: 3, max: 6 }) * 20;
+      items.push({
         id: 0,
-        name: 'Ben Sparrow',
-        lastText: 'You on your way?',
-        face: 'http://www.placecage.com/300/400'
-      }, {
-        id: 1,
-        name: 'Max Lynx',
-        lastText: 'Hey, it\'s me',
-        face: 'http://www.placecage.com/400/500'
-      }, {
-        id: 2,
-        name: 'Andrew Jostlin',
-        lastText: 'Did you get the ice cream?',
-        face: 'http://www.placecage.com/400/300'
-      }, {
-        id: 3,
-        name: 'Adam Bradleyson',
-        lastText: 'I should buy a boat',
-        face: 'http://www.placecage.com/500/400'
-      }, {
-        id: 4,
-        name: 'Perry Governor',
-        lastText: 'Look at my mukluks!',
-        face: 'http://www.placecage.com/400/400'
-      }])
-    };
+        width: width + 30, height: height + 50,
+        name: faker.name.findName(),
+        lastText: faker.lorem.sentence(),
+        image: avatar(width, height)
+      });
+    }
+    return Ember.A({ items });
   }
 });

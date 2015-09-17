@@ -82,7 +82,7 @@ module.exports = function(environment) {
     'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
     'style-src': "'self' 'unsafe-inline'",
     'connect-src': "'self'",
-    'img-src': "'self' data:",
+    'img-src': "'self' https://www.placecage.com data:",
     'font-src': "'self'",
     'media-src': "'self'"
   };
