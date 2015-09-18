@@ -1,0 +1,14 @@
+<div>
+  {{#ember-collection
+  estimated-width=width
+  estimated-height=height
+  buffer=20
+  items=items
+  cell-layout=(waterfall-layout
+    columns=columns
+    length=(action "cellCount")
+    height=(action "cellHeight")
+    spacing=spacing) as |item index|}}
+    {{yield item item.width item.height}}
+  {{/ember-collection}}
+</div>

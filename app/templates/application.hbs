@@ -1,23 +1,5 @@
 <ion-header kind="light">Header</ion-header>
 <ion-content header=true footer=true padding>
-  {{#ember-collection
-  estimated-width=width
-  estimated-height=height
-  buffer=20
-  items=model.items
-  cell-layout=(waterfall-layout
-    columns=columns
-    length=(action "cellCount")
-    height=(action "cellHeight")
-    spacing=spacing) as |item index|}}
-    <ion-item complex as |section|>
-      {{#if section.link}}
-        <img src={{item.image}} width={{item.scaledWidth}} height={{item.scaledHeight}}>
-        <h2>{{item.name}}</h2>
-        <p>{{item.lastText}}</p>
-        <i class="icon icon-accessory"></i>
-      {{/if}}
-    </ion-item>
-  {{/ember-collection}}
+  {{outlet}}
 </ion-content>
 <ion-footer kind="light">Footer</ion-footer>
